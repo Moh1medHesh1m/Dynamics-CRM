@@ -4,6 +4,15 @@ This project is a customized nopCommerce application that integrates with **Micr
 
 ---
 
+## 📸 Screenshot
+
+Here’s a preview of the project UI:
+
+![Screenshot](assets/techlabslondon-header.png)
+![Screenshot](assets/techlabslondon-form.png)
+
+---
+
 ## 📂 Project Structure
 
 ```
