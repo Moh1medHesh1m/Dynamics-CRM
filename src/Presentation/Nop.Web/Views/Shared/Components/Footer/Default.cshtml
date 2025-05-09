@@ -1,0 +1,106 @@
+﻿@model FooterModel
+
+@using Nop.Core
+@using Nop.Core.Domain.Tax
+@using Nop.Core.Domain.Topics
+
+@inject IWorkContext workContext
+
+<footer class="techlabs-footer">
+    <div class="footer-top">
+        <p>Follow us for latest news and trends</p>
+        <div class="footer-socials">
+            <a href="https://www.svgrepo.com/show/13677/twitter.svg" target="_blank" rel="noopener">
+                <img src="https://www.svgrepo.com/show/13677/twitter.svg" alt="X (Twitter)" width="24" height="24" />
+            </a>
+            <a href="https://www.svgrepo.com/show/75820/linkedin.svg" target="_blank" rel="noopener">
+                <img src="https://www.svgrepo.com/show/75820/linkedin.svg" alt="LinkedIn" width="24" height="24" />
+            </a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener">
+                <img src="https://www.svgrepo.com/show/13671/youtube.svg" alt="YouTube" width="24" height="24" />
+            </a>
+        </div>
+    </div>
+
+
+    <div class="footer-columns">
+        <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Meet our team</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms and Condition</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Products & Solutions</h4>
+            <ul>
+                <li><a href="#">iProperty Cloud</a></li>
+                <li><a href="#">D365 Contact Centre</a></li>
+                <li><a href="#">Ticketing System</a></li>
+                <li><a href="#">Websites & Portals</a></li>
+                <li><a href="#">AI Practice</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Comprehensive Services</h4>
+            <ul>
+                <li><a href="#">Digital Transformation</a></li>
+                <li><a href="#">Consultancy Services</a></li>
+                <li><a href="#">Managed Services</a></li>
+                <li><a href="#">Post Delivery Services</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Microsoft AI Cloud Solutions</h4>
+            <ul>
+                <li><a href="#">Microsoft AI</a></li>
+                <li><a href="#">Microsoft Power BI</a></li>
+                <li><a href="#">Power Platform</a></li>
+                <li><a href="#">Microsoft 365</a></li>
+                <li><a href="#">Microsoft Dynamics 365</a></li>
+                <li><a href="#">Microsoft Azure</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>News & Resources</h4>
+            <ul>
+                <li><a href="#">Articles & News</a></li>
+                <li><a href="#">Case Studies</a></li>
+                <li><a href="#">Blog Article</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script asp-location="Footer">
+    $(function() {
+        $('.footer-block .title').on('click', function () {
+            var e = window, a = 'inner';
+            if (!('innerWidth' in window)) {
+                a = 'client';
+                e = document.documentElement || document.body;
+            }
+            var result = { width: e[a + 'Width'], height: e[a + 'Height'] };
+            if (result.width < 769) {
+                $(this).siblings('.list').slideToggle('slow');
+            }
+        });
+    });
+</script>
+<script asp-location="Footer">
+    $(function() {
+        $('.block .title').on('click', function () {
+            var e = window, a = 'inner';
+            if (!('innerWidth' in window)) {
+                a = 'client';
+                e = document.documentElement || document.body;
+            }
+            var result = { width: e[a + 'Width'], height: e[a + 'Height'] };
+            if (result.width < 1001) {
+                $(this).siblings('.listbox').slideToggle('slow');
+            }
+        });
+    });
+</script>

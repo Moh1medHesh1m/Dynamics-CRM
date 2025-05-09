@@ -1,0 +1,90 @@
+﻿@model Nop.Web.Models.Customer.RegisterModel
+@{
+    Layout = "_ColumnsOne";
+}
+
+<div class="techlabs-contact-wrapper">
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Let's Start a Project!</h1>
+            <p class="hero-subtitle">
+                Whether you're looking to leverage the power of Microsoft Dynamics 365, develop a cutting-edge e-commerce solution,
+                build a seamless customer portal, or explore the award-winning iProperty Cloud platform for housing & property management,
+                we've got you covered.
+            </p>
+        </div>
+        <div class="hero-image">
+            <img src="https://techlabs.london/wp-content/uploads/2024/10/new_ideas-.png" alt="New Ideas Illustration" />
+        </div>
+    </section>
+
+    <section class="form-section">
+        <div class="form-card">
+            <h2>Book a Service form</h2>
+            <p class="sub-text">
+                Fill out the form below to get started.
+            </p>
+
+       
+             @if (Model.CustomProperties != null && Model.CustomProperties.ContainsKey("SubmissionError"))
+                {
+                    <div class="alert alert-danger text-center" style="margin-bottom: 20px;">
+                        @Model.CustomProperties["SubmissionError"]
+                    </div>
+              }
+
+            @if (Model.CustomProperties != null && Model.CustomProperties.ContainsKey("SubmissionResult"))
+            {
+                <div class="alert alert-success text-center" id="successToast">
+                    @Model.CustomProperties["SubmissionResult"]
+                </div>
+
+                <script>
+                    setTimeout(function() {
+                        document.getElementById('successToast').style.display = 'none';
+                    }, 5000);
+                </script>
+            }
+
+                <form asp-controller="CrmRegister" asp-action="Register" method="post" id="registrationForm">
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: flex; font-weight: bold; justify-content: start;">First Name *</label>
+                        <input name="firstName" class="form-control"
+                               placeholder="First Name"
+                               required
+                               style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;" />
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: flex; font-weight: bold; justify-content: start;">Last Name *</label>
+                        <input name="lastName" class="form-control"
+                               placeholder="Last Name"
+                               required
+                               style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;" />
+                    </div>
+
+                    <div style="margin-bottom: 30px;">
+                        <label style="display: flex; font-weight: bold; justify-content: start;">Email *</label>
+                        <input name="email" type="email" class="form-control"
+                               placeholder="Email address"
+                               required
+                               style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;" />
+                    </div>
+
+                    <div style="text-align: center;">
+                        <button type="submit"
+                                style="background-color: #ffd36d; color: black; padding: 10px 30px; border: none; border-radius: 10px; font-weight: bold;">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+        </div>
+    </section>
+</div>
+
+<!-- Add this script to prevent form resubmission -->
+<script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+</script>
